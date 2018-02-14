@@ -139,7 +139,10 @@ func (p *entryProcessor) Process(e map[string]interface{}) error {
 		if err != nil {
 			return err
 		}
-		p.p.Process(e, h.(string), j)
+		err = p.p.Process(e, h.(string), j)
+		if err != nil {
+			return err
+		}
 	}
 	return nil
 }
